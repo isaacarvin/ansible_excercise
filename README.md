@@ -1,2 +1,3 @@
 # ansible_excersice
-learning
+go through more about the ansible playbook
+github link: https://github.com/ansible/ansible-examples
