@@ -1,0 +1,79 @@
+
+----------------------------
+Check connectivity of hosts
+
+We have used this command in our previous tutorial also. The command to check connectivity of hosts is
+
+# ansible <group> -m ping
+
+
+Checking host’s system information
+
+Ansible collects the system’s information for all the hosts connected to it. To display the information of hosts, run
+
+# ansible <group> -m setup | less
+
+Secondly, to check a particular info from the collected information by passing an argument,
+
+# ansible <group> -m setup -a "filter=ansible_distribution"
+Transferring files
+
+
+So to manage the users on the connected hosts, we use a module named ‘user’ & commands to use it are as follows,
+
+Creating a new user
+
+# ansible <group> -m user -a "name=ansible password=<encrypted password>"
+
+
+Deleting a user
+
+# ansible <group> -m user -a "name=ansible state=absent"
+
+check user is present
+
+#getent passwd | grep test1
+
+
+
+For transferring files, we use a module ‘copy’ & complete command that is used is
+
+# ansible <group> -m copy -a "src=/home/ansible dest=/tmp/home"
+Managing users
+
+Changing permissions & ownership
+
+So for changing ownership of files of connected hosts, we use module named ‘file’ & commands used are
+
+Changing permission of a file
+
+# ansible <group> -m file -a "dest=/home/ansible/file1.txt mode=777"
+Changing ownership of a file
+
+# 
+Managing Packages
+
+So, we can manage the packages installed on all the hosts connected to ansible by using ‘yum’ & ‘apt’ modules & the complete commands used are
+
+Check if package is installed & update it
+
+# ansible <group> -m apt -a "name=apache2 state=latest"
+Check if package is installed & don’t update it
+
+# ansible <group> -m apt -a "name=apache2 state=present"
+So to manage services with ansible, we use modules ‘service’ & complete commands that are used are,
+
+Starting a service
+
+# ansible <group> -m service -a "name=apache2 state=started"
+Stopping a service
+
+# ansible <group> -m service -a "name=apache2 state=stopped"
+Restarting a service
+
+# ansible <group> -m service -a "name=apache2 state=restarted"
+
+
+-----------------------------------------------------------------------
+
+
