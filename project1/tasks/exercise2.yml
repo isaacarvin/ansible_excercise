@@ -1,0 +1,15 @@
+---
+
+- hosts: clientlist
+  vars:
+    test: "hello world"
+
+
+
+  tasks:
+
+  - debug:
+      msg: "Equal"
+
+    when:
+      test == "hello world"

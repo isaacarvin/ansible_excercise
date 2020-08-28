@@ -1,0 +1,17 @@
+---
+- hosts: clientlist
+  vars: 
+   testrun: "df -h"
+
+
+
+  tasks:
+  
+  - name: run the command
+    command: "{{ testrun }}"
+
+    register: output
+
+
+#  - debug:
+#      var: output

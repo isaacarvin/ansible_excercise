@@ -1,0 +1,13 @@
+---
+
+- hosts: all
+
+  vars_prompt:
+
+  - name: username
+    prompt: "please enter user name"
+
+  tasks:
+
+  - debug:
+      var: "username"

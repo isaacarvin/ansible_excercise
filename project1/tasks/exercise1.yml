@@ -1,0 +1,11 @@
+---
+- hosts: clientlist
+  vars:
+    port_no: 8080
+    new_var: "hello word"
+
+
+  tasks:
+    
+  - debug:
+      var: "port_no"
